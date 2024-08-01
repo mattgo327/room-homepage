@@ -1,0 +1,399 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.upside {
+  height: 70vh;
+}
+
+.menu-div {
+  background-size: cover; /* Adjust to cover the whole div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60vw;
+  height: 70vh;
+}
+
+.menu-div nav {
+  top: 5%;
+  left: 5%;
+  gap: 30px;
+}
+
+.navbar-nav {
+  gap: 20px;
+}
+
+.nav-item a {
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none; /* Eliminar el subrayado predeterminado */
+  padding: 0;
+}
+
+.nav-item a::after {
+  content: ""; /* Contenido pseudo-elemento */
+  display: block;
+  width: 0; /* Ancho inicial (sin subrayado visible) */
+  height: 1px; /* Grosor del subrayado */
+  background-color: #ffffff; /* Color del subrayado */
+  position: absolute;
+  bottom: -3px; /* Posición debajo del texto */
+  left: 50%; /* Centrar el subrayado */
+  transform: translateX(-50%); /* Ajuste para centrar */
+  opacity: 0; /* Inicialmente no visible */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.nav-item a:hover::after {
+  opacity: 1; /* Hacer visible al hacer hover */
+  width: 30%; /* Ancho del subrayado al hacer hover */
+}
+
+.menu-hamburger {
+  position: absolute;
+  width: 30px; /* Fill the width up to the border of .down-img-2 */
+  height: 15px;
+  top: 40px;
+  left: 10px;
+}
+
+.icon-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.white-menu {
+  display: none;
+}
+
+.slides {
+  width: 40vw;
+  padding: 0 100px;
+  position: relative;
+}
+
+.slides h1 {
+  font-weight: 700;
+  color: #000000;
+}
+
+.slides p {
+  color: #a1a1a1;
+  font-weight: 500;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slides .shop-now a {
+  text-decoration: none;
+  letter-spacing: 10px;
+  gap: 10px;
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease; /* Transición suave del color */
+}
+.slides .shop-now a span, .slides .shop-now a img {
+  transition: color 0.3s ease, fill 0.3s ease; /* Transición suave del color y del fill */
+}
+.slides .shop-now a:hover {
+  color: #a1a1a1; /* Cambia el color del texto al hover */
+}
+.slides .shop-now a:hover span {
+  color: #a1a1a1; /* Cambia el color del span al hover */
+}
+.slides .shop-now a:hover img {
+  fill: #a1a1a1; /* Cambia el color del SVG al hover */
+}
+
+.navigation {
+  position: absolute;
+  background-color: #000000;
+  width: calc(100% - 30vw); /* Fill the width up to the border of .down-img-2 */
+  height: 60px;
+  bottom: 0;
+  left: 0;
+}
+
+.navigation-mobile {
+  display: none;
+}
+
+.icon-angle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #a1a1a1;
+  flex-grow: 1;
+}
+
+.icon-angle:hover {
+  background-color: #454545;
+}
+
+.icon-angle-mobile {
+  display: none;
+}
+
+.downside {
+  display: flex; /* Flexbox to align items */
+  justify-content: space-between; /* Space between the images and text */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  height: 30vh; /* Height to match the children */
+}
+
+.down-img-1 {
+  background-image: url("../../images/image-about-dark.jpg");
+}
+
+.down-img-2 {
+  background-image: url("../../images/image-about-light.jpg");
+}
+
+.down-img-1,
+.down-img-2 {
+  background-size: cover; /* Cover the whole div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30vw;
+  height: 100%; /* Make the height of the images match the container */
+}
+
+.product-info {
+  width: 40vw;
+  height: 100%; /* Match the height of the images */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  padding: 20px 40px;
+  gap: 10px;
+}
+
+.product-info span {
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+.product-info p {
+  color: #a1a1a1;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 992px) {
+  .upside {
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura del viewport */
+    flex-direction: column;
+  }
+  .menu-div {
+    width: 100%;
+    height: 50vh; /* Ocupa el 50% de la altura del viewport */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    position: relative; /* Asegurar que el nav se posicione relativo al contenedor */
+  }
+  .menu-div nav {
+    display: flex;
+    flex-direction: column; /* Cambiar a columna */
+    align-items: center; /* Centrar horizontalmente los elementos */
+    gap: 20px; /* Ajustar el espacio entre los elementos del navbar */
+    position: absolute; /* Posicionar absolutamente dentro de menu-div */
+    top: 50%; /* Posicionar verticalmente en el centro */
+    left: 50%; /* Posicionar horizontalmente en el centro */
+    transform: translate(-50%, -50%); /* Centrar horizontal y verticalmente */
+  }
+  .nav-item {
+    margin: 10px 0; /* Espacio entre los elementos del nav */
+    text-align: center;
+  }
+  .nav-item a {
+    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+  }
+  .nav-item a::after {
+    content: ""; /* Contenido pseudo-elemento */
+    display: block;
+    width: 0; /* Ancho inicial (sin subrayado visible) */
+    height: 1px; /* Grosor del subrayado */
+    background-color: #ffffff; /* Color del subrayado */
+    position: absolute;
+    bottom: -3px; /* Posición debajo del texto */
+    left: 50%; /* Posición inicial centrada */
+    transform: translateX(-50%); /* Ajuste para centrar el subrayado */
+    opacity: 0; /* Inicialmente no visible */
+    transition: opacity 0.3s ease, width 0.3s ease; /* Transición suave */
+  }
+  .nav-item a:hover::after {
+    opacity: 1; /* Hacer visible al hacer hover */
+    width: 30%; /* Ancho del subrayado al hacer hover, igual al ancho del texto */
+    left: 50%; /* Ajustar para que el subrayado comience desde el inicio del texto */
+    transform: translateX(-50%); /* Elimina el ajuste de centrado para que el subrayado cubra todo el texto */
+  }
+  .slides {
+    width: 100%;
+    height: 50vh; /* Ocupa el 50% de la altura del viewport */
+    display: flex;
+    flex-direction: column; /* Alinear los elementos en columna */
+    justify-content: center; /* Centrar verticalmente el contenido */
+    align-items: center; /* Centrar horizontalmente el contenido */
+    position: relative;
+    text-align: center;
+    padding: 50px;
+  }
+  .slides .shop-now {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    margin-bottom: 50px;
+  }
+  .navigation {
+    position: static;
+    bottom: 10px; /* Ajustar la posición si es necesario */
+    width: 30%; /* Ancho del 30% del contenedor */
+    gap: 10px; /* Espacio entre los botones de navegación */
+  }
+  .downside {
+    height: 100vh; /* El downside debería ocupar el 100vh después del upside */
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+  }
+  .down-img-1,
+  .down-img-2 {
+    height: 30vh; /* Altura de las imágenes */
+    width: 100%; /* Ajusta el ancho si es necesario */
+  }
+  .product-info {
+    height: 40vh; /* Altura del producto-info */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding se incluye en el ancho total */
+  }
+}
+@media (max-width: 610px) {
+  .navbar {
+    top: 50px !important;
+  }
+  .navbar-collapse {
+    display: none !important;
+  }
+  .icon-hamburger {
+    display: flex;
+  }
+  .white-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribuye espacio entre los elementos */
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 20vh; /* Ajusta la altura según sea necesario */
+    background-color: #ffffff;
+    top: 0;
+    padding: 0 20px; /* Añade padding horizontal para asegurar espacio */
+    box-sizing: border-box;
+  }
+  .icon-close-div {
+    margin-right: 40px; /* Espacio a la derecha del icono close */
+  }
+  .navbar-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-right: 10px; /* Ajusta el padding si es necesario */
+    flex-grow: 1; /* Asegura que ocupe el espacio disponible */
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+    gap: 30px;
+  }
+  .nav-link {
+    color: #000000 !important;
+    position: relative;
+    padding: 10px 20px; /* Aumenta el área clicable */
+    font-size: 1.1rem; /* Aumenta el tamaño de fuente */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .navigation {
+    display: none !important;
+  }
+  .navigation-mobile {
+    display: flex;
+    position: absolute;
+    background-color: #000000;
+    width: 30vw;
+    height: 60px;
+    bottom: 0;
+    right: 0;
+  }
+  .icon-angle-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #a1a1a1;
+    flex-grow: 1;
+  }
+  .icon-angle-mobile:hover {
+    background-color: #454545;
+  }
+  .slides {
+    padding: 30px;
+    text-align: start;
+  }
+  .slide {
+    margin-top: 60px;
+  }
+  .slides h1 {
+    font-size: 1.9rem;
+  }
+  .slides p {
+    font-size: 1rem;
+  }
+}
+body {
+  font-size: 12px;
+  font-family: "League Spartan", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
